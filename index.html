@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Dashboard Admin | Antrian Rumah Sakit</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/tickets.css">
+  <script type="module" src="dist/dashboard.js"></script>
+</head>
+
+<body>
+  <header class="navbar">
+    <div>
+      <strong>Antrian Rumah Sakit</strong>
+      <span>Dashboard Admin</span>
+    </div>
+
+    <div class="user-info">
+      <span id="user-name"></span>
+      <span id="user-role"></span>
+      <button id="logout-button" type="button">Logout</button>
+    </div>
+  </header>
+
+  <main class="dashboard">
+
+    <!-- Manajemen Jenis Antrian -->
+    <section class="panel">
+      <h1>Manajemen Jenis Antrian</h1>
+      <p>Tambah dan kelola layanan rumah sakit.</p>
+
+      <form id="service-form" class="service-form">
+        <div>
+          <label for="service-code">Kode layanan</label>
+          <input
+            id="service-code"
+            type="text"
+            maxlength="1"
+            placeholder="Contoh: A"
+            required
+          >
+        </div>
+
+        <div>
+          <label for="service-name">Nama layanan</label>
+          <input
+            id="service-name"
+            type="text"
+            placeholder="Contoh: Poli Umum"
+            required
+          >
+        </div>
+
+        <button type="submit">Tambah Layanan</button>
+      </form>
+
+      <p id="service-message" class="message" role="status"></p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Kode</th>
+              <th>Nama Layanan</th>
+              <th>Status</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+
+          <tbody id="service-table">
+            <tr>
+              <td colspan="4">Memuat layanan...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Penerbitan Tiket Manual -->
+    <section class="panel">
+      <h2>Penerbitan Tiket Manual</h2>
+      <p>
+        Gunakan fitur ini untuk membantu pengunjung
+        mengambil nomor antrian.
+      </p>
+
+      <form id="manual-ticket-form" class="service-form">
+        <div>
+          <label for="ticket-service">Jenis Antrian</label>
+          <select id="ticket-service" required>
+            <option value="">Pilih layanan</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="ticket-priority">Tingkat Prioritas</label>
+          <select id="ticket-priority" required>
+            <option value="normal">Normal</option>
+            <option value="lansia">Lansia</option>
+            <option value="disabilitas">Disabilitas</option>
+            <option value="vip">VIP</option>
+          </select>
+        </div>
+
+        <button type="submit">Terbitkan Tiket</button>
+      </form>
+
+      <p id="ticket-message" class="message" role="status"></p>
+
+      <!-- Daftar tiket per layanan -->
+      <div id="ticket-list" class="ticket-list">
+        <p class="ticket-empty">Belum ada tiket.</p>
+      </div>
+    </section>
+
+    <!-- Reset Antrian -->
+    <section class="panel">
+      <h2>Reset Antrian</h2>
+
+      <p>
+        Menghapus seluruh tiket antrian dan mengembalikan
+        penomoran ke awal.
+      </p>
+
+      <button
+        id="reset-queue-button"
+        class="danger"
+        type="button"
+      >
+        Reset Semua Antrian
+      </button>
+
+      <p id="reset-message" class="message" role="status"></p>
+    </section>
+
+  </main>
+</body>
+</html>

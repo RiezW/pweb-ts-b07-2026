@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Antrian Rumah Sakit</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="dist/login.js"></script>
+</head>
+<body>
+  <main class="login-container">
+    <section class="login-card">
+      <h1>Antrian Rumah Sakit</h1>
+      <p>Silakan login untuk melanjutkan.</p>
+
+      <form id="login-form">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          autocomplete="username"
+          required
+        >
+
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          autocomplete="current-password"
+          required
+        >
+
+        <button type="submit" id="login-button">Login</button>
+        <p id="login-message" role="alert"></p>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

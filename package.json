@@ -1,0 +1,25 @@
+{
+  "name": "pweb-ts-b07-2026",
+  "version": "1.0.0",
+  "description": "testing",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RiezW/pweb-ts-b07-2026.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/RiezW/pweb-ts-b07-2026/issues"
+  },
+  "homepage": "https://github.com/RiezW/pweb-ts-b07-2026#readme",
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  }
+}

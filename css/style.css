@@ -1,0 +1,375 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f1f5f9;
+  color: #1e293b;
+}
+
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 32px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgb(15 23 42 / 10%);
+}
+
+.login-card h1 {
+  margin-top: 0;
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.login-card button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  font: inherit;
+  cursor: pointer;
+}
+
+.login-card button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+#login-message {
+  color: #dc2626;
+  min-height: 20px;
+}
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 5%;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.navbar > div,
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.navbar strong {
+  font-size: 18px;
+}
+
+.navbar span {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.dashboard {
+  width: min(1100px, 92%);
+  margin: 32px auto;
+}
+
+.panel {
+  margin-bottom: 24px;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgb(15 23 42 / 6%);
+}
+
+.panel h1,
+.panel h2 {
+  margin-top: 0;
+}
+
+.service-form {
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 24px 0 12px;
+}
+
+.service-form > div {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 180px;
+}
+
+.service-form input {
+  padding: 11px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font: inherit;
+}
+
+button {
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  font: inherit;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(0.94);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+#service-table button {
+  margin: 3px;
+}
+
+.danger {
+  background: #dc2626;
+}
+
+.message {
+  min-height: 20px;
+  font-size: 14px;
+}
+
+.message.error {
+  color: #dc2626;
+}
+
+.message.success {
+  color: #15803d;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+th,
+td {
+  padding: 13px;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+th {
+  background: #f8fafc;
+}
+
+@media (max-width: 650px) {
+  .navbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .service-form {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .panel {
+    padding: 16px;
+  }
+}
+
+/* Daftar tiket per layanan (tambahan, tidak mengubah style.css) */
+.ticket-list { margin-top: 16px; }
+
+.ticket-empty { color: #64748b; font-size: 13px; }
+
+.ticket-group-title {
+  margin: 16px 0 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.ticket-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  background: #f8fafc;
+  border-radius: 8px;
+}
+
+.ticket-number { font-weight: 700; }
+
+.ticket-tag {
+  padding: 1px 8px;
+  font-size: 11px;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.ticket-status { font-size: 12px; color: #64748b; }
+
+.ticket-actions { margin-left: auto; display: flex; gap: 16px; }
+
+.ticket-action {
+  border: 0;
+  background: none;
+  padding: 0;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  color: #475569;
+}
+.ticket-action.skip { color: #dc2626; }
+.ticket-action.done { color: #15803d; }
+
+/* Daftar tiket per layanan (tambahan, tidak mengubah style.css) */
+.ticket-list { margin-top: 16px; }
+
+.ticket-empty { color: #64748b; font-size: 13px; }
+
+.ticket-group-title {
+  margin: 16px 0 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.ticket-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  background: #f8fafc;
+  border-radius: 8px;
+}
+
+.ticket-number { font-weight: 700; }
+
+.ticket-tag {
+  padding: 1px 8px;
+  font-size: 11px;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.ticket-status { font-size: 12px; color: #64748b; }
+
+.ticket-actions { margin-left: auto; display: flex; gap: 16px; }
+
+.ticket-action {
+  border: 0;
+  background: none;
+  padding: 0;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  color: #475569;
+}
+.ticket-action.skip { color: #dc2626; }
+.ticket-action.done { color: #15803d; }
+
+/* Info jumlah tiket menunggu pada tabel layanan */
+.service-waiting {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* Gaya form terbitkan tiket (mengikuti contoh) */
+#manual-ticket-form {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#manual-ticket-form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#manual-ticket-form > div:first-child { flex: 1; min-width: 200px; }
+#manual-ticket-form > div:nth-child(2) { width: 130px; }
+
+#manual-ticket-form label {
+  font-size: 12px;
+  font-weight: 400;
+  color: #64748b;
+}
+
+#manual-ticket-form select {
+  width: 100%;
+  height: 40px;
+  padding: 0 12px;
+  font: inherit;
+  font-size: 14px;
+  color: #0f172a;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+#manual-ticket-form select:focus {
+  outline: 2px solid #94a3b8;
+  outline-offset: 1px;
+}
+
+#manual-ticket-form button[type="submit"] {
+  height: 40px;
+  padding: 0 16px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background: #6b7280;
+  border: 1px solid #6b7280;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#manual-ticket-form button[type="submit"]:hover { background: #3a74c5; }
