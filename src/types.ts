@@ -1,4 +1,3 @@
-
 export type UserRole = "admin" | "moderator" | "user";
 
 export type QueuePriority =
@@ -33,6 +32,7 @@ export interface QueueTicket {
   priority: QueuePriority;
   status: QueueStatus;
   createdAt: string;
+  skippedAt?: string;
 }
 
 export const STORAGE_KEYS = {

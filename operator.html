@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Panel Operator | Antrian Rumah Sakit</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/operator.css?v=3">
+  <script type="module" src="dist/operator.js?v=3" defer></script>
+</head>
+
+<body>
+  <header class="navbar">
+    <div>
+      <strong>Panel Operator</strong>
+    </div>
+
+    <div class="user-info">
+      <span id="user-name"></span>
+      <button id="sound-toggle" class="op-logout" type="button">🔊 Suara: Aktif</button>
+      <button id="logout-button" class="op-logout" type="button">Keluar</button>
+    </div>
+  </header>
+
+  <main class="dashboard">
+    <p id="sound-status" class="op-sound-status" role="status"></p>
+
+    <div id="operator-grid" class="operator-grid">
+      <p class="op-empty">Memuat antrian...</p>
+    </div>
+  </main>
+</body>
+</html>
