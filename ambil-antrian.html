@@ -1,0 +1,46 @@
+<!-- ini kerjaan cikooo -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ambil Nomor Antrean | Antrian Rumah Sakit</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/queue.css">
+  <script type="module" src="dist/take-queue.js" defer></script>
+</head>
+
+<body class="queue-page">
+  <header class="navbar">
+    <div>
+      <strong>Antrian Rumah Sakit</strong>
+      <span>Ambil nomor antrean</span>
+    </div>
+
+    <nav class="queue-nav" aria-label="Navigasi halaman">
+      <a href="layar.html">Layar Antrean</a>
+    </nav>
+  </header>
+
+  <main class="dashboard">
+    <section class="queue-board" aria-labelledby="take-queue-title">
+      <div class="queue-board-heading">
+        <div>
+          <h1 id="take-queue-title">Ambil Nomor Antrean</h1>
+          <p>Pilih layanan dan prioritas untuk mendapatkan nomor antrean.</p>
+        </div>
+      </div>
+
+      <p id="ticket-message" class="message queue-message" role="status" aria-live="polite"></p>
+      <div id="issued-ticket" class="issued-ticket" hidden></div>
+
+      <div id="service-card-grid" class="service-card-grid">
+        <p class="queue-empty">Memuat jenis antrean...</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
+<!-- ini kerjaan cikooo -->
