@@ -1,9 +1,16 @@
 // ini kerjaan cikooo
-import { getServices, getTickets, saveTickets } from "./storage.js";
+import { requireLogin } from "./auth.js";
+import {
+  clearSession,
+  getServices,
+  getTickets,
+  saveTickets
+} from "./storage.js";
 import type { QueuePriority, QueueService, QueueTicket } from "./types.js";
 import { STORAGE_KEYS } from "./types.js";
 
 const POLL_INTERVAL = 2500;
+const session = requireLogin();
 
 const grid = document.querySelector<HTMLDivElement>(
   "#service-card-grid"
@@ -14,6 +21,9 @@ const message = document.querySelector<HTMLElement>(
 const issuedTicket = document.querySelector<HTMLDivElement>(
   "#issued-ticket"
 );
+const currentUser = document.querySelector<HTMLElement>("#current-user");
+const logoutButton =
+  document.querySelector<HTMLButtonElement>("#logout-button");
 
 const PRIORITIES: { value: QueuePriority; label: string }[] = [
   { value: "normal", label: "Normal" },
@@ -262,6 +272,18 @@ function refresh(force = false): void {
 function updateQueueServices(): void {
   refresh();
   window.setTimeout(updateQueueServices, POLL_INTERVAL);
+}
+
+if (currentUser) {
+  currentUser.textContent =
+    `Masuk sebagai ${session.firstName} (${session.role})`;
+}
+
+if (logoutButton) {
+  logoutButton.addEventListener("click", () => {
+    clearSession();
+    window.location.href = "login.html";
+  });
 }
 
 refresh(true);

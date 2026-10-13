@@ -1,10 +1,14 @@
 // ini kerjaan cikooo
-import { getServices, getTickets, saveTickets } from "./storage.js";
+import { requireLogin } from "./auth.js";
+import { clearSession, getServices, getTickets, saveTickets } from "./storage.js";
 import { STORAGE_KEYS } from "./types.js";
 const POLL_INTERVAL = 2500;
+const session = requireLogin();
 const grid = document.querySelector("#service-card-grid");
 const message = document.querySelector("#ticket-message");
 const issuedTicket = document.querySelector("#issued-ticket");
+const currentUser = document.querySelector("#current-user");
+const logoutButton = document.querySelector("#logout-button");
 const PRIORITIES = [
     { value: "normal", label: "Normal" },
     { value: "lansia", label: "Lansia" },
@@ -177,6 +181,16 @@ function refresh(force = false) {
 function updateQueueServices() {
     refresh();
     window.setTimeout(updateQueueServices, POLL_INTERVAL);
+}
+if (currentUser) {
+    currentUser.textContent =
+        `Masuk sebagai ${session.firstName} (${session.role})`;
+}
+if (logoutButton) {
+    logoutButton.addEventListener("click", () => {
+        clearSession();
+        window.location.href = "login.html";
+    });
 }
 refresh(true);
 window.setTimeout(updateQueueServices, POLL_INTERVAL);

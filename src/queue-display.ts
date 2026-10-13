@@ -1,8 +1,10 @@
 // ini kerjaan cikooo
-import { getServices, getTickets } from "./storage.js";
+import { requireLogin } from "./auth.js";
+import { clearSession, getServices, getTickets } from "./storage.js";
 import type { QueueService, QueueTicket } from "./types.js";
 
 const POLL_INTERVAL = 2500;
+const session = requireLogin();
 
 const grid = document.querySelector<HTMLDivElement>(
   "#queue-display-grid"
@@ -12,6 +14,9 @@ const updatedLabel = document.querySelector<HTMLElement>(
 );
 const fullscreenButton =
   document.querySelector<HTMLButtonElement>("#fullscreen-button");
+const currentUser = document.querySelector<HTMLElement>("#current-user");
+const logoutButton =
+  document.querySelector<HTMLButtonElement>("#logout-button");
 
 function formatTicketNumber(code: string, number: number): string {
   return `${code}-${String(number).padStart(3, "0")}`;
@@ -137,6 +142,18 @@ async function toggleFullscreen(): Promise<void> {
 if (fullscreenButton) {
   fullscreenButton.addEventListener("click", () => {
     toggleFullscreen();
+  });
+}
+
+if (currentUser) {
+  currentUser.textContent =
+    `Masuk sebagai ${session.firstName} (${session.role})`;
+}
+
+if (logoutButton) {
+  logoutButton.addEventListener("click", () => {
+    clearSession();
+    window.location.href = "login.html";
   });
 }
 
