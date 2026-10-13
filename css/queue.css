@@ -1,0 +1,223 @@
+/* ini kerjaan cikooo */
+.queue-page {
+  min-height: 100vh;
+}
+
+.queue-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.queue-nav a,
+.queue-nav button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 8px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #fff;
+  color: #1e293b;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.queue-nav a:hover,
+.queue-nav button:hover {
+  background: #f8fafc;
+}
+
+.queue-board {
+  padding: 24px;
+  background: #f8fafc;
+  border-radius: 14px;
+}
+
+.queue-board-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.queue-board-heading h1 {
+  margin: 0 0 6px;
+  font-size: 24px;
+}
+
+.queue-board-heading p {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.queue-display-grid,
+.service-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px;
+}
+
+.queue-display-card,
+.service-pick-card {
+  min-width: 0;
+  padding: 18px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+
+.queue-card-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.queue-card-heading h2 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.queue-service-code {
+  padding: 3px 7px;
+  border-radius: 5px;
+  background: #f1f5f9;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.queue-called-label {
+  display: block;
+  margin-top: 30px;
+  color: #d97706;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.queue-called-number {
+  display: block;
+  margin-top: 4px;
+  color: #0f172a;
+  font-size: 44px;
+  line-height: 1.1;
+}
+
+.queue-no-call {
+  display: block;
+  margin-top: 32px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.queue-waiting-count {
+  display: block;
+  margin-top: 24px;
+  padding-top: 12px;
+  border-top: 1px solid #f1f5f9;
+  color: #64748b;
+  font-size: 11px;
+  text-align: center;
+}
+
+.service-pick-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.service-pick-card .queue-waiting-count {
+  margin-top: -8px;
+  padding: 0;
+  border: 0;
+  text-align: left;
+}
+
+.service-pick-card label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.service-pick-card select {
+  width: 100%;
+  min-height: 40px;
+  padding: 0 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #fff;
+  color: #1e293b;
+  font: inherit;
+  font-size: 14px;
+}
+
+.service-pick-card button {
+  min-height: 40px;
+  background: #f59e0b;
+  color: #1e293b;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.service-pick-card button:hover {
+  background: #e89c36;
+}
+
+.queue-empty {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 28px 16px;
+  color: #64748b;
+  text-align: center;
+}
+
+.queue-message {
+  margin: 0 0 12px;
+}
+
+.issued-ticket {
+  margin-bottom: 18px;
+  padding: 18px;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  background: #f0fdf4;
+  color: #166534;
+  font-weight: 700;
+  text-align: center;
+}
+
+.issued-ticket-number {
+  display: block;
+  margin-top: 4px;
+  font-size: 36px;
+  letter-spacing: 0.03em;
+}
+
+@media (max-width: 650px) {
+  .queue-called-number {
+    font-size: 36px;
+  }
+
+  .queue-board {
+    padding: 16px;
+  }
+
+  .queue-board-heading h1 {
+    font-size: 21px;
+  }
+
+  .queue-nav {
+    width: 100%;
+  }
+}
+/* ini kerjaan cikooo */
