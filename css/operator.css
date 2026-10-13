@@ -1,0 +1,169 @@
+
+Operator · CSS
+/* Panel Operator (tambahan, tidak mengubah style.css) */
+.op-logout {
+  padding: 6px 14px;
+  font-size: 12px;
+  color: #1e293b;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+}
+ 
+.operator-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+ 
+.op-card {
+  padding: 18px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+ 
+.op-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+ 
+.op-service-name {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+ 
+.op-waiting {
+  font-size: 11px;
+  color: #64748b;
+}
+ 
+.op-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+ 
+.op-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+ 
+.op-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+ 
+.op-number {
+  font-size: 26px;
+  line-height: 1.2;
+}
+ 
+.op-number.current { color: #d97706; }
+.op-number.next { color: #0f172a; }
+ 
+.op-sub {
+  font-size: 11px;
+  color: #64748b;
+}
+ 
+.op-actions {
+  display: flex;
+  gap: 8px;
+}
+ 
+.op-btn {
+  height: 36px;
+  padding: 0 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 6px;
+}
+ 
+.op-call {
+  flex: 1;
+  color: #1e293b;
+  background: #e89c36;
+  border: 1px solid #e89c36;
+}
+ 
+.op-done,
+.op-skip {
+  color: #1e293b;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+}
+ 
+.op-skip { color: #dc2626; }
+ 
+.op-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+ 
+.op-call:disabled {
+  background: #f1cb8c;
+  border-color: #f1cb8c;
+  opacity: 1;
+  color: #fff;
+}
+ 
+.op-note {
+  margin: 10px 0 0;
+  font-size: 11px;
+  color: #64748b;
+}
+ 
+.op-empty {
+  grid-column: 1 / -1;
+  color: #64748b;
+  text-align: center;
+}
+ 
+@media (max-width: 750px) {
+  .operator-grid { grid-template-columns: 1fr; }
+}
+ 
+/* Tombol ulangi panggilan */
+.op-replay {
+  align-self: flex-start;
+  margin-top: 6px;
+  padding: 0;
+  font-size: 11px;
+  color: #d97706;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+ 
+.op-replay:hover {
+  text-decoration: underline;
+  filter: none;
+}
+ 
+/* Status suara */
+.op-sound-status {
+  min-height: 18px;
+  margin: 0 0 14px;
+  font-size: 12px;
+  color: #64748b;
+}
+ 
+.op-sound-status.error {
+  color: #dc2626;
+}
+ 
+.op-replay:disabled {
+  color: #94a3b8;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+ 
+
