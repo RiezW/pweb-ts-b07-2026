@@ -1,9 +1,24 @@
 import { requireLogin } from "./auth.js";
 import { clearSession, getServices, getSession, getTickets, saveTickets } from "./storage.js";
 import { STORAGE_KEYS } from "./types.js";
-const APP_VERSION = "v3";
-// Auth guard: wajib login, jika belum diarahkan ke login.html
-const session = requireLogin();
+const APP_VERSION = "v6";
+// Auth guard: wajib login dan role admin/moderator.
+// Belum login -> login.html. Role user -> ambil-antrian.html (halaman miliknya).
+function requireOperatorAccess() {
+    const current = requireLogin();
+    if (current.role !== "admin" && current.role !== "moderator") {
+        window.location.href = "ambil-antrian.html";
+        throw new Error("Halaman operator hanya untuk admin dan moderator.");
+    }
+    return current;
+}
+// Dipakai untuk pengecekan ulang (tombol Back, logout dari tab lain)
+function hasOperatorAccess() {
+    const current = getSession();
+    return (current !== null &&
+        (current.role === "admin" || current.role === "moderator"));
+}
+const session = requireOperatorAccess();
 const userName = document.querySelector("#user-name");
 const logoutButton = document.querySelector("#logout-button");
 const soundToggle = document.querySelector("#sound-toggle");
@@ -373,7 +388,6 @@ function createServiceCard(service, tickets) {
     const header = createElement("div", "op-card-header");
     header.append(createElement("h2", "op-service-name", service.name.toUpperCase()), createElement("span", "op-waiting", `${waiting.length} menunggu`));
     const soundOn = isSoundOn();
-    // Tombol ulangi panggilan kini ikut mati (disabled) jika suara dimatikan
     const replayButton = called
         ? createButton(soundOn ? "🔊 Ulangi panggilan" : "🔇 Suara mati", "op-replay", !soundOn, () => replayCall(service))
         : undefined;
@@ -437,15 +451,15 @@ function init() {
     // Auth guard tambahan: halaman yang dipulihkan lewat tombol Back
     // (cache browser) tidak menjalankan script lagi, jadi sesi dicek ulang.
     window.addEventListener("pageshow", (event) => {
-        if (event.persisted && !getSession()) {
+        if (event.persisted && !hasOperatorAccess()) {
             window.location.href = "login.html";
         }
     });
     // Sinkron otomatis bila tiket/layanan berubah dari tab lain
     window.addEventListener("storage", (event) => {
-        // Logout dari tab lain -> tab ini ikut keluar
+        // Logout / ganti akun dari tab lain -> tab ini ikut keluar
         if ((event.key === STORAGE_KEYS.auth || event.key === null) &&
-            !getSession()) {
+            !hasOperatorAccess()) {
             window.location.href = "login.html";
             return;
         }
